@@ -3,7 +3,7 @@ const present= require ('./present')
 const add = require ('./add')
 const read =  require ('./read')
 const del = require ('./del')
-
+const update = require ('./update')
 
 
 const data = process.argv
@@ -16,8 +16,8 @@ if (data[2]== 'add'){
 //build an object
     note  = {
         id: data [3],
-        Student_Name: data [4],
-        Student_Age : data [5]
+        title: data [4],
+        Author: data [5]
     }
 //get oldNote value
     var oldNote = read ()
@@ -43,4 +43,15 @@ if (data [2] === 'delete' ){
     del (id, oldNote)
     present(read())
 
+}
+if (data [2] === 'update'){
+    let id = {
+        id: data [3],
+        title: data [4],
+        Author : data [5]
+    }
+    let oldNote = read ()
+    update (id ,oldNote)
+
+    present (read())
 }
