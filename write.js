@@ -1,5 +1,5 @@
 const fs = require ('fs');
-const write = function (data = 'data'){
+const write = function (data){
     fs.writeFileSync ('Task.txt', data)
 
 }
