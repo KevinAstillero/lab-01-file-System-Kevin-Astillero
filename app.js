@@ -6,18 +6,18 @@ const del = require ('./del')
 const update = require ('./update')
 
 
-const data = process.argv
+const input = process.argv
 
 //write (data)
 
 var note={}
 
-if (data[2]== 'add'){
+if (input[2]== 'add'){
 //build an object
     note  = {
-        id: data [3],
-        title: data [4],
-        Author: data [5]
+        id: input [3],
+        title: input [4],
+        Author: input [5]
     }
 //get oldNote value
     var oldNote = read ()
@@ -29,14 +29,14 @@ present (read())
 
 }
 
-if (data [2]== 'read'){
+if (input [2]== 'read'){
     const present = require ('./present') 
     
     present(read())
 }
 
-if (data [2] === 'delete' ){
-    let id= data [3]
+if (input [2] === 'delete' ){
+    let id = input [3]
     let oldNote =  read()
     let del = require('./del')
 
@@ -44,11 +44,11 @@ if (data [2] === 'delete' ){
     present(read())
 
 }
-if (data [2] === 'update'){
+if (input [2] === 'update'){
     let id = {
-        id: data [3],
-        title: data [4],
-        Author : data [5]
+        id: input [3],
+        title: input [4],
+        Author : input [5]
     }
     let oldNote = read ()
     update (id ,oldNote)
